@@ -6,10 +6,7 @@ FROM node:22-alpine AS builder
 WORKDIR /app
 
 # Enable Corepack and use a fixed pnpm version
-RUN apk add --no-cache git openssh-client \
-    && mkdir -p -m 0700 /root/.ssh \
-    && ssh-keyscan github.com >> /root/.ssh/known_hosts \
-    && corepack enable \
+RUN corepack enable \
     && corepack prepare pnpm@11.12.0 --activate
 
 # Workspace/package files
@@ -25,7 +22,7 @@ COPY Libraries ./Libraries
 COPY Backend ./Backend
 
 # Install workspace dependencies
-RUN --mount=type=ssh pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile
 
 # Build siteSystems service and required workspace dependencies
 RUN pnpm --filter @menorahgroupmep/siteSystems... build
