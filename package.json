@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@menorahgroupmep/auth": "workspace:*",
-    "@menorahgroupmep/common": "workspace:*",
-    "@menorahgroupmep/contracts": "workspace:*",
+    "@menorahgroupmep/common": "git+ssh://git@github.com/Mizrachi892/menorahgroupmep-common.git#v1.0.4",
+    "@menorahgroupmep/contracts": "git+ssh://git@github.com/Mizrachi892/menorahgroupmep-contracts.git#v1.0.2",
     "cors": "^2.8.5",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
