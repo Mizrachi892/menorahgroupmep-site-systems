@@ -8,14 +8,7 @@ WORKDIR /app
 # Enable Corepack and use a fixed pnpm version
 RUN apk add --no-cache git openssh-client \
     && mkdir -p -m 0700 /root/.ssh \
-    && ssh-keyscan -p 443 ssh.github.com >> /root/.ssh/known_hosts \
-    && printf '%s\n' \
-        'Host github.com' \
-        '    HostName ssh.github.com' \
-        '    User git' \
-        '    Port 443' \
-        >> /root/.ssh/config \
-    && chmod 600 /root/.ssh/config \
+    && ssh-keyscan github.com >> /root/.ssh/known_hosts \
     && corepack enable \
     && corepack prepare pnpm@11.12.0 --activate
 
