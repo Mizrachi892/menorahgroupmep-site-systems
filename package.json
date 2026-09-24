@@ -22,7 +22,8 @@
     "morgan": "^1.10.1",
     "mysql2": "^3.15.3",
     "sequelize": "^6.37.8",
-    "socket.io": "^4.8.3"
+    "socket.io": "^4.8.3",
+    "@menorahgroupmep/routes": "workspace:*"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
